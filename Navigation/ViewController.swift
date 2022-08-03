@@ -9,11 +9,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let pushVC = PushVC()
+    let presentVC = PresentVC()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+    }
+    @IBAction func pushButton(_ sender: UIButton) {
+        self.navigationController?.pushViewController(PushVC(), animated: true)
     }
 
-
+    @IBAction func presentButton(_ sender: UIButton) {
+        self.navigationController?.present(PresentVC(), animated: true)
+    }
+    
 }
 
+class PushVC: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
+    }
+}
+
+class PresentVC: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+    }
+}
